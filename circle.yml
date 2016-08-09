@@ -1,8 +1,14 @@
 machine:
+  pre:
+      - sudo curl -L -o /usr/bin/docker 'https://s3-external-1.amazonaws.com/circle-downloads/docker-1.9.0-circleci'
+      - sudo chmod 0755 /usr/bin/docker
   services:
     - docker
 
 dependencies:
   override:
     - docker info
-    - docker build -t arbitrarytech/movie-api .
+    - docker build -t movie-api:$CIRCLE_SHA1 . | cat
+    - aws ecr get-login --region us-east-1
+    - docker tag movie-api:$CIRCLE_SHA1 680449900020.dkr.ecr.us-east-1.amazonaws.com/movie-api:$CIRCLE_SHA1
+    - docker push 680449900020.dkr.ecr.us-east-1.amazonaws.com/movie-api:$CIRCLE_SHA1
