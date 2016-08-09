@@ -1,7 +1,7 @@
+[![CircleCI](https://circleci.com/gh/arbitrarytech/movie-api/tree/master.svg?style=svg)](https://circleci.com/gh/arbitrarytech/movie-api/tree/master)
+
 # Movie API
 This is a sample application for demonstration purposes.
-
-[![CircleCI](https://circleci.com/gh/arbitrarytech/movie-api/tree/master.svg?style=svg)](https://circleci.com/gh/arbitrarytech/movie-api/tree/master)
 
 ## Configuration
 
